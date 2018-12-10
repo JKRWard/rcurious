@@ -694,8 +694,7 @@ Use the pipe function to present the top of the `witchdat` dataset.
 
 We can rename a column by constructing a pipe from the table to the `rename` function
 ```{r rename}
-rawd %>% 
-  rename(country = gadm.adm0)
+rawd %>% rename(Country = "gadm.adm0")
 ```
 ### Your turn
 
@@ -763,10 +762,13 @@ Use cheatsheets, talk to eachother.
 ```{r using leaflet}
 library(leaflet)
 
+pal <- colorNumeric(
+  palette = "Dark2",
+  domain = rawd$country)
 my_map <- rawd %>% 
   leaflet() %>% 
   addTiles() %>% 
-  addCircleMarkers(lng = ~lon, lat = ~lat, color= "#660000", radius = ~deaths/10, opacity = .2)
+  addCircleMarkers(lng = ~lon, lat = ~lat, color= ~pal(country), radius = ~deaths/10, opacity = .5)
 ```
 
 
