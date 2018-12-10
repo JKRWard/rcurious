@@ -637,7 +637,7 @@ An alternative is the `skim()` function from from the `skimr` package.
 What is the difference between the output of `summary` and `skim`? Which do you like better and why?
 
 ```{r}
-skim(rawd)
+#skim(rawd)
 ```
 
 ## Group discussion
@@ -766,7 +766,7 @@ library(leaflet)
 my_map <- rawd %>% 
   leaflet() %>% 
   addTiles() %>% 
-  addCircles(lng = ~lon, lat = ~lat, color= "#660000", radius = ~deaths/10, opacity = .5)
+  addCircleMarkers(lng = ~lon, lat = ~lat, color= "#660000", radius = ~deaths/10, opacity = .2)
 ```
 
 
