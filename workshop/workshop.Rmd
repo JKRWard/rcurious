@@ -707,22 +707,23 @@ Pipe `witchdat` to the `rename` function and change `gadm.adm0` to `country`.
 
 The tidy way of plotting data is with the `ggplot2` package, which comes with the `tidyverse`.
 
-```{}
-<some data> %>% # pipe the data to ggplot()
+```{r plot}
+
+#rawd %>%ggplot()
 
 ```
 
 ###  Your turn
 
 What happens when you `%>%` the `witchdat` table into `ggplot()`?
-
+We havent told ggplot what is x and what is y 
 ## Aesthetics
 
 We define x and y axes of the plot with aesthetics in `ggplot`.
 
-```{}
-<some data> %>% 
-  ggplot(aes(x = <column name>, y = <column name>))
+```{r}
+rawd %>% 
+  ggplot(aes(x = tried, y = deaths))
 ```
 
 ### Your turn
@@ -737,10 +738,10 @@ We'll add a plot layer `+` to our ggplot using `geom_point` for a scatterplot.
 
 Set the x axis to *year* and the y axis to *deaths*.
 
-```{}
-<data> %>% 
-  ggplot(aes(x = <column with year>, y = <column with deaths>)) +
-  geom_point() # Adds a scatterplot.
+```{r}
+rawd %>% 
+  ggplot(aes(x = year, y = deaths)) +
+  geom_point()# Adds a scatterplot.
 ```
 
 
@@ -758,6 +759,18 @@ Use cheatsheets, talk to eachother.
 
 - Prepare a presentation for those who don't get that far describing (using summary data and visualisations) what questions can and can't be investigated by these data. For example, are the observations restricted in time or location?
 - Use the `leaflet` package to plot where the witches died sized by number of deaths. Make the dots a nice blood red. 
+
+```{r using leaflet}
+library(leaflet)
+
+my_map <- rawd %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  addCircles(lng = ~lon, lat = ~lat, color= "#660000", radius = ~deaths/10, opacity = .5)
+```
+
+
+
 - Ask a different table you what questions they have about these data and see if you can prepare a markdown presentation to report your results.
 - Why does Steph de Silva talk about the missingness? 
 
