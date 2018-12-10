@@ -636,6 +636,10 @@ An alternative is the `skim()` function from from the `skimr` package.
 
 What is the difference between the output of `summary` and `skim`? Which do you like better and why?
 
+```{r}
+skim(rawd)
+```
+
 ## Group discussion
 
 *Based on this new information, what questions do we add or update?*
@@ -673,13 +677,13 @@ Piping makes code easier to read (arguably).
 For example, we saw a snapshot of the preloaded iris data earlier.
 
 The `head()` function takes one argument, a table: 
-```{}
-head(<some data table>). 
+```{r }
+head(rawd) 
 ```
 
 But we could also *pipe* `%>%` the data into the function.
-```{}
-<some data table> %>% head() 
+```{r pipe }
+rawd%>% head() 
 ```
 
 ### Your turn
@@ -689,9 +693,9 @@ Use the pipe function to present the top of the `witchdat` dataset.
 ## Rename a column
 
 We can rename a column by constructing a pipe from the table to the `rename` function
-```{}
-<my data> %>% 
-  rename(<newname> = <oldname>)
+```{r rename}
+rawd %>% 
+  rename(country = gadm.adm0)
 ```
 ### Your turn
 
