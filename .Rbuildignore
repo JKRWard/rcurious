@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^README-.*\.png$
+^rcurious\.Rcheck$
+^rcurious.*\.tar\.gz$
+^rcurious.*\.tgz$
