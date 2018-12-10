@@ -3,10 +3,12 @@ title: "R-Curious"
 subtitle: "An R-Ladies useR! 2018 workshop for new users of R"
 author: "This workshop is brought to you by R-Ladies: Steph, Sarah, Charles, Kim, another Sarah, Jenny, and Di"
 output :
-  ioslides_presentation
-  # html_document: # Toggle this and comment out ioslides_presentation.
-  #   toc: true
-  #   toc_float: true
+  #ioslides_presentation
+   
+   html_document: 
+   # Toggle this and comment out ioslides_presentation.
+     toc: true
+     toc_float: true
 
 ---
 
@@ -14,6 +16,9 @@ output :
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Useful tips 
+
+All of the things in this document
 
 ## Hi! 
 
@@ -298,7 +303,7 @@ Try `3 + 2` and press **enter**:
 
 ```{r}
 # Type 3 + 2 here. Here's hoping infinite moon reader works. 
-
+3+2
 ```
 
 ## Environment
@@ -553,6 +558,10 @@ Navigate to this part of your notes and add code in the chunk that will load the
 
 # Don't forget, you need to install the package before you can use it. 
 
+#install.packages("tidyverse")
+
+librarian::shelf(tidyverse)
+
 ```
 
 # Importing data
@@ -578,6 +587,12 @@ Try importing the data at the console with `read_csv`. What output do you see?
 `read_csv` with the argument url produces a data object. An object we can assign.
 
 Open a code chunk *here* and read the data in using `read_csv` and assign `<-` the data to an object called `witchdat`
+```{r reading data}
+rawd <- read_csv("https://raw.githubusercontent.com/JakeRuss/witch-trials/master/data/trials.csv")
+
+head(rawd)
+
+```
 
 - **control+alt+i** to open a code chunk. 
 - press green **play** to run chunk.
